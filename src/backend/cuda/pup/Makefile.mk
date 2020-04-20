@@ -22,4 +22,7 @@ libyaksa_la_SOURCES += \
 	src/backend/cuda/pup/yaksuri_cudai_pup_short.cu \
 	src/backend/cuda/pup/yaksuri_cudai_pup_wchar_t.cu
 
+noinst_HEADERS += \
+	src/backend/cuda/pup/yaksuri_cudai_pup.h
+
 include src/backend/cuda/pup/Makefile.pup.mk

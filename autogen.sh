@@ -42,7 +42,7 @@ done
 ########################################################################
 
 # backend pup functions
-for x in seq cuda ; do
+for x in seq cuda xe ; do
     echo_n "generating backend pup functions for ${x}... "
     ./src/backend/${x}/genpup.py ${genpup_args}
     echo "done"

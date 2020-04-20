@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "yaksuri_seq_pre.h"
 #include "yaksuri_cuda_pre.h"
+#include "yaksuri_xe_pre.h"
 
 typedef struct {
     enum {
@@ -29,6 +30,7 @@ typedef struct yaksur_type_s {
     void *priv;
     yaksuri_seq_type_s seq;
     yaksuri_cuda_type_s cuda;
+    yaksuri_xe_type_s xe;
 } yaksur_type_s;
 
 typedef struct {

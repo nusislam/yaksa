@@ -63,6 +63,12 @@ missing
 /src/backend/cuda/pup/yaksuri_cudai_populate_pupfns*
 /src/backend/cuda/pup/yaksuri_cudai_pup.h
 /src/backend/cuda/pup/yaksuri_cudai_pup_*
+/src/backend/xe/pup/Makefile.pup.mk
+/src/backend/xe/pup/yaksuri_xei_populate_pupfns*
+/src/backend/xe/pup/yaksuri_xei_pup.h
+/src/backend/xe/pup/yaksuri_xei_pup_kernels.cl
+/src/backend/xe/pup/yaksuri_xei_pup_kernels.ll
+/src/backend/xe/pup/yaksuri_xei_pup_kernels.c
 /src/backend/seq/pup/Makefile.pup.mk
 /src/backend/seq/pup/yaksuri_seqi_populate_pupfns*
 /src/backend/seq/pup/yaksuri_seqi_pup.h

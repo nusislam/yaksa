@@ -26,6 +26,12 @@ int yaksur_init_hook(void)
     rc = yaksuri_cuda_init_hook(&yaksuri_global.gpudriver[id].info);
     YAKSU_ERR_CHECK(rc, fn_fail);
 
+    /* XE hooks */
+    id = YAKSURI_GPUDRIVER_ID__XE;
+    yaksuri_global.gpudriver[id].info = NULL;
+    rc = yaksuri_xe_init_hook(&yaksuri_global.gpudriver[id].info);
+    YAKSU_ERR_CHECK(rc, fn_fail);
+
 
     /* final setup for all backends */
     for (id = YAKSURI_GPUDRIVER_ID__UNSET + 1; id < YAKSURI_GPUDRIVER_ID__LAST; id++) {
