@@ -109,7 +109,11 @@ int yaksur_ipack(const void *inbuf, void *outbuf, uintptr_t count, yaksi_type_s 
             yaksu_atomic_store(&request->cc, 1);
         }
 
-        request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        /* if the request kind was already set to STAGED, do not
+         * override it, as a part of the request could be staged */
+        if (request_backend->kind == YAKSURI_REQUEST_KIND__UNSET) {
+            request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        }
     } else if (type->is_contig &&
                ((inattr.type == YAKSUR_PTR_TYPE__GPU &&
                  outattr.type == YAKSUR_PTR_TYPE__REGISTERED_HOST) ||
@@ -130,7 +134,11 @@ int yaksur_ipack(const void *inbuf, void *outbuf, uintptr_t count, yaksi_type_s 
             yaksu_atomic_store(&request->cc, 1);
         }
 
-        request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        /* if the request kind was already set to STAGED, do not
+         * override it, as a part of the request could be staged */
+        if (request_backend->kind == YAKSURI_REQUEST_KIND__UNSET) {
+            request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        }
     } else {
         /* we need temporary buffers and pipelining; queue it up in
          * the progress engine */
@@ -223,7 +231,11 @@ int yaksur_iunpack(const void *inbuf, void *outbuf, uintptr_t count, yaksi_type_
             yaksu_atomic_store(&request->cc, 1);
         }
 
-        request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        /* if the request kind was already set to STAGED, do not
+         * override it, as a part of the request could be staged */
+        if (request_backend->kind == YAKSURI_REQUEST_KIND__UNSET) {
+            request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        }
     } else if (type->is_contig &&
                ((inattr.type == YAKSUR_PTR_TYPE__GPU &&
                  outattr.type == YAKSUR_PTR_TYPE__REGISTERED_HOST) ||
@@ -244,7 +256,11 @@ int yaksur_iunpack(const void *inbuf, void *outbuf, uintptr_t count, yaksi_type_
             yaksu_atomic_store(&request->cc, 1);
         }
 
-        request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        /* if the request kind was already set to STAGED, do not
+         * override it, as a part of the request could be staged */
+        if (request_backend->kind == YAKSURI_REQUEST_KIND__UNSET) {
+            request_backend->kind = YAKSURI_REQUEST_KIND__DIRECT;
+        }
     } else {
         /* we need temporary buffers and pipelining; queue it up in
          * the progress engine */
